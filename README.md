@@ -54,7 +54,7 @@ git push origin issue:issue
 ※issueは任意なので、作成したbranch名でOKです
 
 ## pull request
-https://github.com/HaClose/store-for-you/pulls
+https://github.com/HaClose/store4ufm/pulls
 にアクセス
 
 「New pull request」ボタン押下
