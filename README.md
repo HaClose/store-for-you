@@ -12,7 +12,7 @@ git clone https://github.com/HaClose/store4ufm.git
 ## cd
 クローンしたフォルダに移動
 ```
-cd store-for-you/
+cd store4ufm/
 ```
 
 ## git branch
