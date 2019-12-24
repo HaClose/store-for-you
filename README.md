@@ -1,5 +1,5 @@
-# store-for-you
-仮説検証LP
+# store4ufm
+仮説検証LP作成用のリポジトリです
 
 # はじめかた
 
