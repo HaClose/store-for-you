@@ -6,7 +6,7 @@
 ## git clone
 ローカルPCにクローンします。
 ```
-git clone https://github.com/HaClose/store-for-you.git
+git clone https://github.com/HaClose/store4ufm.git
 ```
 
 ## cd
