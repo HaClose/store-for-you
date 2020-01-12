@@ -24,7 +24,6 @@
 <script type="text/javascript" src="js/menu.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
 <script src="js/jquery.subscribe.js"></script>
-<script src="https://checkout.stripe.com/checkout.js"></script>
 </head>
 <body>
 <div class="wrapper">
@@ -148,6 +147,7 @@
               USD100.00
             </h4>
             <div class="join">
+              <script src="https://checkout.stripe.com/checkout.js"></script>
               <button id="usdPurchaseButton" class="btn btn-primary btn-action btn-fill" >Get Started</button>
             </div>
           </li>
@@ -238,7 +238,7 @@
 	var handler = StripeCheckout.configure({
 		key: 'pk_test_3LYqp76Baj0Z7WuetsAQEJFc',
 		image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
-		locale: 'auto',
+		locale: 'en',
 		token: function(token) {
   	// Prevent user from leaving page
   	window.onbeforeunload = function() {
@@ -282,9 +282,9 @@
   	name: 'Store for you',
   	description: 'Subscription Service',
   	panelLabel:'GET STARTED',
-  	currency:'USD',
+  	currency:'usd',
   	shippingAddress:true,
-  	amount: 100
+  	amount: 10000
   });
   e.preventDefault();
 });

@@ -14,7 +14,7 @@ $email = $_POST['stripeEmail'];
 // フォームから情報を取得:
 try {
   $charge = \Stripe\Charge::create(array(
-    "amount" => 100,
+    "amount" => 10000,
     "description" => "Subscription Service",
     "currency" => "usd",
     "source" => $token,
@@ -25,7 +25,7 @@ try {
 }
 
 // 決済処理完了後に飛ばすページ
-header('Location: file:///Users/takashi.iwasaki/store4ufm/index.html');
+header('Location: /index.html');
 exit;
 
 ?>
