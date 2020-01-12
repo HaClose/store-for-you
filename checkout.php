@@ -10,14 +10,23 @@ require_once( dirname(__FILE__).'/stripe-php/init.php');
 // Get the payment token submitted by the form:
 $token = $_POST['stripeToken'];
 $email = $_POST['stripeEmail'];
-
+$name  = $_POST['stripeName'];
 // フォームから情報を取得:
 try {
+  $customer = \Stripe\Customer::create(array(
+    "source" => $token,
+    "email"  => $email,
+    "name"   => $name,
+  ));
+
+  $customerId = $customer -> id;
+
   $charge = \Stripe\Charge::create(array(
     "amount" => 10000,
     "description" => "Subscription Service",
     "currency" => "usd",
-    "source" => $token,
+    //"source" => $token,
+    "customer" => $customerId,
   ));
 }catch (\Stripe\Error\Card $e) {
   // 決済失敗時の処理
