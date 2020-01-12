@@ -24,6 +24,7 @@
 <script type="text/javascript" src="js/menu.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
 <script src="js/jquery.subscribe.js"></script>
+<script src="https://checkout.stripe.com/checkout.js"></script>
 </head>
 <body>
 <div class="wrapper">
@@ -147,7 +148,7 @@
               USD100.00
             </h4>
             <div class="join">
-              <button id="customButton" class="btn btn-primary btn-action btn-fill" >Get Started</button>
+              <button id="usdPurchaseButton" class="btn btn-primary btn-action btn-fill" >Get Started</button>
             </div>
           </li>
           <li class="pricing">
@@ -207,7 +208,7 @@
               USD100.00
             </h4>
             <div class="join">
-              <button id="customButton" class="btn btn-primary btn-action btn-fill" >Get Started</button>
+              <button id="usdPurchaseButton" class="btn btn-primary btn-action btn-fill" >Get Started</button>
             </div>
           </li>
           <li class="pricing">
@@ -233,8 +234,65 @@
   </div> <!-- Main Section -->
 </div>
 <!-- Wrapper-->
-
 <script>
+	var handler = StripeCheckout.configure({
+		key: 'pk_test_3LYqp76Baj0Z7WuetsAQEJFc',
+		image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+		locale: 'auto',
+		token: function(token) {
+  	// Prevent user from leaving page
+  	window.onbeforeunload = function() {
+  		return "";
+  	};
+
+    // Dynamically create a form element to submit the results
+    // to your backend server
+    var form = document.createElement("form");
+    form.setAttribute('method', "POST");
+    form.setAttribute('action', "checkout.php");
+
+    // Add the token ID as a hidden field to the form
+    var inputToken = document.createElement("input");
+    inputToken.setAttribute('type', "hidden");
+    inputToken.setAttribute('name', "stripeToken");
+    inputToken.setAttribute('value', token.id);
+    form.appendChild(inputToken);
+
+    // Add the email as a hidden field to the form
+    var inputEmail = document.createElement("input");
+    inputEmail.setAttribute('type', "hidden");
+    inputEmail.setAttribute('name', "stripeEmail");
+    inputEmail.setAttribute('value', token.email);
+    form.appendChild(inputEmail);
+
+		// Finally, submit the form
+		document.body.appendChild(form);
+
+    // Artificial 1 second delay for testing
+    setTimeout(function() {
+    	window.onbeforeunload = null;
+    	form.submit();
+    }, 1000);
+}
+});
+
+	document.getElementById('usdPurchaseButton').addEventListener('click', function(e) {
+  // Open Checkout with further options
+  handler.open({
+  	name: 'Store for you',
+  	description: 'Subscription Service',
+  	panelLabel:'GET STARTED',
+  	currency:'USD',
+  	shippingAddress:true,
+  	amount: 100
+  });
+  e.preventDefault();
+});
+
+// Close Checkout on page navigation
+window.addEventListener('popstate', function() {
+	handler.close();
+});
 </script>
 </body>
 </html>
