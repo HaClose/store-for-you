@@ -2304,6 +2304,15 @@ padding: 120px 10px 50px 350px;
 	 margin-top: 10px;
  }
 
+ .faq{
+	 margin: 50px 0px;
+	 line-height: 25px;
+ }
+
+ .answer{
+	 margin-bottom:30px;
+ }
+
 @media only screen and (min-width: 700px) and (max-width: 1024px) {
 	.list-three-content-area {
     width: 28%;
