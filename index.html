@@ -160,7 +160,7 @@
               SGD20.00
             </h4>
             <div class="join">
-              <button id="hkdPurchaseButton" class="btn btn-primary btn-action btn-fill" >Get Started</button>
+              <button id="sgdPurchaseButton" class="btn btn-primary btn-action btn-fill" >Get Started</button>
             </div>
           </li>
         </ul>
@@ -271,7 +271,7 @@
               RM60.00
             </h4>
             <div class="join">
-              <button id="customButton" class="btn btn-primary btn-action btn-fill" >Get Started</button>
+              <button id="myrPurchaseButton" class="btn btn-primary btn-action btn-fill" >Get Started</button>
             </div>
           </li>
           <li class="pricing">
@@ -287,7 +287,7 @@
               SGD20.00
             </h4>
             <div class="join">
-              <button id="customButton" class="btn btn-primary btn-action btn-fill" >Get Started</button>
+              <button id="sgdPurchaseButton" class="btn btn-primary btn-action btn-fill" >Get Started</button>
             </div>
           </li>
         </ul>
@@ -429,7 +429,7 @@ window.addEventListener('popstate', function() {
 });
 </script>
 <!-- MYR Checkout end -->
-<!-- HKD Checkout start -->
+<!-- sgd Checkout start -->
 <script>
 	var handler = StripeCheckout.configure({
 		key: 'pk_test_3LYqp76Baj0Z7WuetsAQEJFc',
@@ -445,7 +445,7 @@ window.addEventListener('popstate', function() {
     // to your backend server
     var form = document.createElement("form");
     form.setAttribute('method', "POST");
-    form.setAttribute('action', "checkout_hkd.php");
+    form.setAttribute('action', "checkout_sgd.php");
 
     // Add the token ID as a hidden field to the form
     var inputToken = document.createElement("input");
@@ -472,15 +472,15 @@ window.addEventListener('popstate', function() {
 }
 });
 
-	document.getElementById('hkdPurchaseButton').addEventListener('click', function(e) {
+	document.getElementById('sgdPurchaseButton').addEventListener('click', function(e) {
   // Open Checkout with further options
   handler.open({
   	name: 'Store for you',
   	description: 'Subscription Service',
   	panelLabel:'GET STARTED',
-  	currency:'hkd',
+  	currency:'sgd',
   	shippingAddress:true,
-  	amount: 11000
+  	amount: 2000
   });
   e.preventDefault();
 });
@@ -490,6 +490,6 @@ window.addEventListener('popstate', function() {
 	handler.close();
 });
 </script>
-<!-- HKD Checkout end -->
+<!-- sgd Checkout end -->
 </body>
 </html>

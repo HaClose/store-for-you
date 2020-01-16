@@ -22,9 +22,9 @@ try {
   $customerId = $customer -> id;
 
   $charge = \Stripe\Charge::create(array(
-    "amount" => 11000,
+    "amount" => 2000,
     "description" => "Subscription Service",
-    "currency" => "hkd",
+    "currency" => "sgd",
     //"source" => $token,
     "customer" => $customerId,
   ));
