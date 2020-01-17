@@ -11,17 +11,22 @@ require_once( dirname(__FILE__).'/stripe-php/init.php');
 $token = $_POST['stripeToken'];
 $email = $_POST['stripeEmail'];
 $name  = $_POST['stripeName'];
+
 $currency  = $_POST['stripeCurrency'];
 $amount;
+$plan;
 switch ($currency) {
   case "myr":
     $amount = 6000;
+    $plan = 'plan_GYWLjASXkyYhmE';
     break;
   case "usd":
     $amount = 1500;
+    $plan = 'plan_GYwMwZE79Nb4ZP';
     break;
   case "sgd":
     $amount = 2000;
+    $plan = 'plan_GYwL46vHTSK4lC';
     break;
 }
 
@@ -34,6 +39,12 @@ try {
 
   $customerId = $customer -> id;
 
+  $subscription = \Stripe\Subscription::create(array(
+    "customer" => $customerId,
+    'items' => [['plan' => $plan]],
+    'trial_end' => time() + 5,
+  ));
+  /* 
   $charge = \Stripe\Charge::create(array(
     "amount" => $amount,
     "description" => "Subscription Service",
@@ -41,6 +52,7 @@ try {
     //"source" => $token,
     "customer" => $customerId,
   ));
+  */
 }catch (\Stripe\Error\Card $e) {
   // 決済失敗時の処理
   die('決済が完了しませんでした');
