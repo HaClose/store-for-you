@@ -11,7 +11,20 @@ require_once( dirname(__FILE__).'/stripe-php/init.php');
 $token = $_POST['stripeToken'];
 $email = $_POST['stripeEmail'];
 $name  = $_POST['stripeName'];
-// フォームから情報を取得:
+$currency  = $_POST['stripeCurrency'];
+$amount;
+switch ($currency) {
+  case "myr":
+    $amount = 6000;
+    break;
+  case "usd":
+    $amount = 1500;
+    break;
+  case "sgd":
+    $amount = 2000;
+    break;
+}
+
 try {
   $customer = \Stripe\Customer::create(array(
     "source" => $token,
@@ -22,9 +35,9 @@ try {
   $customerId = $customer -> id;
 
   $charge = \Stripe\Charge::create(array(
-    "amount" => 6000,
+    "amount" => $amount,
     "description" => "Subscription Service",
-    "currency" => "myr",
+    "currency" => $currency,
     //"source" => $token,
     "customer" => $customerId,
   ));
