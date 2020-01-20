@@ -18,7 +18,7 @@ $plan;
 switch ($currency) {
   case "myr":
     $amount = 6000;
-    $plan = 'plan_GYWLjASXkyYhmE';
+    $plan = 'plan_GZz446yIb4DW7V';
     break;
   case "usd":
     $amount = 1500;
@@ -42,7 +42,7 @@ try {
   $subscription = \Stripe\Subscription::create(array(
     "customer" => $customerId,
     'items' => [['plan' => $plan]],
-    'trial_end' => time() + 5,
+    //'trial_end' => time() + 5,
   ));
   /* 
   $charge = \Stripe\Charge::create(array(
