@@ -18,15 +18,15 @@ $plan;
 switch ($currency) {
   case "myr":
     $amount = 6000;
-    $plan = 'plan_GZz446yIb4DW7V';
+    $plan = 'plan_Ga02uj3TdscKUn';
     break;
   case "usd":
     $amount = 1500;
-    $plan = 'plan_GYwMwZE79Nb4ZP';
+    $plan = 'plan_Ga02GYopMwCa1e';
     break;
   case "sgd":
     $amount = 2000;
-    $plan = 'plan_GYwL46vHTSK4lC';
+    $plan = 'plan_Ga02qaKNdrZlLP';
     break;
 }
 
