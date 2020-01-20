@@ -2295,6 +2295,13 @@ padding: 120px 10px 50px 350px;
  	margin-bottom: 10px;
  }
 
+.campaign {
+    font-size: 37px;
+    text-align: center;
+    margin: 14px 0px 26px 0px;
+    color: #e91e63;
+}
+
 .product_image{
 	width: 100%;
 }
@@ -2384,6 +2391,7 @@ padding: 120px 10px 50px 350px;
 	.list-four-content-area{
 		width: 100%;
 		display:inline;
+		margin: 0px;
 	}
 
 	.list-four .four_content_image {
@@ -2409,6 +2417,14 @@ padding: 120px 10px 50px 350px;
 
 	.pricing h4 {
     margin: 10px 0 24px 0;
+	}
+
+	.campaign{
+		font-size: 20px;
+	}
+
+	.stock {
+    margin-bottom: 30px;
 	}
 
 }
