@@ -2385,12 +2385,11 @@ padding: 120px 10px 50px 350px;
 
 @media screen and (max-width: 399px) {
 	.list-three-content-area{
-		width: 100%;
-		display:inline;
+		width: 85%;
+
 	}
 	.list-four-content-area{
-		width: 100%;
-		display:inline;
+		width: 85%;
 		margin: 0px;
 	}
 
@@ -2410,9 +2409,8 @@ padding: 120px 10px 50px 350px;
 		padding: 20px;
 		text-align: center;
     border: solid 0.5px gray;
-    margin: 30px 0px 30px 0px;
+    margin: 10px 0px 10px 0px;
     width: 100%;
-		display: block;
 	}
 
 	.pricing h4 {
@@ -2420,7 +2418,7 @@ padding: 120px 10px 50px 350px;
 	}
 
 	.campaign{
-		font-size: 20px;
+		font-size: 18px;
 	}
 
 	.stock {
