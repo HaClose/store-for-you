@@ -2406,11 +2406,11 @@ padding: 120px 10px 50px 350px;
 	}
 
 	.pricing{
-		padding: 20px;
+		padding: 20px 0px 20px 0px;
 		text-align: center;
     border: solid 0.5px gray;
     margin: 10px 0px 10px 0px;
-    width: 100%;
+		width: 100%;
 	}
 
 	.pricing h4 {
