@@ -1562,7 +1562,7 @@ padding: 120px 10px 50px 350px;
 .pricing h4 {
 	font-size: 40px;
 	font-weight: 400;
-	color: #A1A1A1;
+	color: #777;
 	margin: 10px 0 30px 0;
 }
 
@@ -2406,15 +2406,15 @@ padding: 120px 10px 50px 350px;
 	}
 
 	.pricing{
-		padding: 20px 0px 20px 0px;
+		padding: 0px 0px 20px 0px;
 		text-align: center;
-    border: solid 0.5px gray;
-    margin: 10px 0px 10px 0px;
+    border: solid 0px ;
+    margin: 10px 0px 30px 0px;
 		width: 100%;
 	}
 
 	.pricing h4 {
-    margin: 10px 0 24px 0;
+    margin: 10px 0 15px 0;
 	}
 
 	.campaign{
