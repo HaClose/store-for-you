@@ -2279,16 +2279,27 @@ padding: 120px 10px 50px 350px;
  }
 
  .list-four-content-area{
- 	width: 20%;
- 	display: inline-grid;
- 	margin: 16px;
- 	text-align: center;
+	 width: 70%;
+	 margin: 0px auto 50px auto;
  }
 
  .list-four .four_content_image{
- 	width:50%;
+ 	width:10%;
  	margin-bottom: 15px;
+	float:left;
  }
+
+.text_of_How_to{
+	text-align: left;
+	margin-left: 130px;
+}
+
+.item_content_area{
+	width: 20%;
+	display: inline-grid;
+	margin: 16px;
+	text-align: center;
+}
 
  .list-three .three_content_image{
  	width:70%;
@@ -2300,6 +2311,19 @@ padding: 120px 10px 50px 350px;
     text-align: center;
     margin: 14px 0px 26px 0px;
     color: #e91e63;
+}
+
+.number{
+	background-color:#ffb107;
+	color: white;
+	font-family: 'Avenir','Arial Black','Arial',sans-serif;
+	font-weight: bold;
+	font-size: 15px;
+	border-radius: 50%;
+	width: 30px;
+	line-height: 30px;
+  -webkit-transform: translateY(-50%);
+	margin: 20px auto 0px auto;
 }
 
 .product_image{
@@ -2326,8 +2350,8 @@ padding: 120px 10px 50px 350px;
     margin: 12px;
 	}
 	.list-four-content-area{
-		width: 18%;
-		margin: 12px;
+	 width: 70%;
+	 margin: 0px auto 50px auto;
 	}
 
 	.list-three-price{
@@ -2351,15 +2375,29 @@ padding: 120px 10px 50px 350px;
 		width: 100%;
 		display:inline;
 	}
-	.list-four-content-area{
-		width: 100%;
-		display:inline;
+
+	.list-four-content-area {
+	    width: 100%;
+	    margin: 0px;
+	    display: inline-grid;
 	}
+
 
 	.list-four .four_content_image {
     width: 40%;
     margin-bottom: 10px;
     margin-top: 30px;
+	}
+
+	.text_of_How_to {
+		text-align: unset;
+		margin-left: 0px;
+	}
+
+	.item_content_area{
+		width: 100%;
+		margin: 0px;
+		display: inline-grid;
 	}
 
 	.list-three .three_content_image {
@@ -2381,6 +2419,16 @@ padding: 120px 10px 50px 350px;
     margin: 10px 0 24px 0;
 	}
 
+	.number{
+		font-size: 20px;
+		width: 40px;
+		line-height: 40px;
+	}
+
+	.stock{
+	 margin-bottom: 30px;
+ }
+
 }
 
 @media screen and (max-width: 399px) {
@@ -2388,9 +2436,11 @@ padding: 120px 10px 50px 350px;
 		width: 85%;
 
 	}
-	.list-four-content-area{
-		width: 85%;
-		margin: 0px;
+
+	.list-four-content-area {
+	    width: 85%;
+	    margin: 0px;
+	    display: inline-grid;
 	}
 
 	.list-four .four_content_image {
@@ -2398,6 +2448,17 @@ padding: 120px 10px 50px 350px;
     margin-bottom: 10px;
     margin-top: 30px;
 	}
+
+.text_of_How_to {
+	text-align: unset;
+	margin-left: 0px;
+}
+
+.item_content_area{
+	width: 100%;
+	margin: 0px;
+	display: inline-grid;
+}
 
 	.list-three .three_content_image {
 		width: 50%;
@@ -2421,6 +2482,12 @@ padding: 120px 10px 50px 350px;
 		font-size: 18px;
 	}
 
+	.number{
+		font-size: 20px;
+		width: 40px;
+		line-height: 40px;
+	}
+
 	.stock {
     margin-bottom: 30px;
 	}
@@ -2430,7 +2497,6 @@ padding: 120px 10px 50px 350px;
 .copyright{
 	text-align: center;
 }
-
 
 
 /*---------------------------------------------------
