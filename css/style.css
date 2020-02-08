@@ -2311,6 +2311,7 @@ padding: 120px 10px 50px 350px;
     text-align: center;
     margin: 14px 0px 26px 0px;
     color: #e91e63;
+		line-height: 50px;
 }
 
 .number{
@@ -2342,6 +2343,18 @@ padding: 120px 10px 50px 350px;
 
  .answer{
 	 margin-bottom:30px;
+ }
+
+ @media only screen and (min-width: 1024px) and (max-width: 1410px) {
+	 .list-three-price {
+     text-align: center;
+ 	}
+	 .pricing {
+     width: 28%;
+		margin: 17px 5px 17px 5px;
+ 		padding: 50px 10px 50px 10px;
+ 	}
+
  }
 
 @media only screen and (min-width: 700px) and (max-width: 1024px) {
