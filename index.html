@@ -56,11 +56,14 @@
   js = d.createElement(s); js.id = id;
   js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
   fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+}(document, 'script', 'facebook-jssdk'));
+</script>
 
 <!-- Your customer chat code -->
 <div class="fb-customerchat"
   attribution=setup_tool
+  logged_in_greeting="Please send the number of the product you want to get started!"
+  logged_out_greeting="Please send the number of the product you want to get started!"
   page_id="140955823330409">
 </div>
 <div class="wrapper">
@@ -1160,7 +1163,7 @@
 
       </div>
 
-      <a id="back-top" class="back-to-top page-scroll" href="#main"> <i class="ion-ios-arrow-thin-up"></i> </a>
+      <!-- <a id="back-top" class="back-to-top page-scroll" href="#main"> <i class="ion-ios-arrow-thin-up"></i> </a>-->
   </div>
     <!-- Scroll To Top Ends-->
   <div class="footer">
