@@ -1563,7 +1563,6 @@ padding: 120px 10px 50px 350px;
 	font-size: 40px;
 	font-weight: 400;
 	color: #777;
-	margin: 10px 0 30px 0;
 }
 
 .pricing p {
@@ -2301,6 +2300,10 @@ padding: 120px 10px 50px 350px;
 	text-align: center;
 }
 
+.entry_form{
+	text-align: center;
+}
+
  .list-three .three_content_image{
  	width:70%;
  	margin-bottom: 10px;
@@ -2408,9 +2411,10 @@ padding: 120px 10px 50px 350px;
 	}
 
 	.item_content_area{
-		width: 100%;
-		margin: 0px;
-		display: inline-grid;
+		width: 30%;
+		margin: 3px;
+		display: inline-block;
+		vertical-align: top;
 	}
 
 	.list-three .three_content_image {
@@ -2468,9 +2472,10 @@ padding: 120px 10px 50px 350px;
 }
 
 .item_content_area{
-	width: 100%;
-	margin: 0px;
-	display: inline-grid;
+	width: 30%;
+	margin: 3px;
+	display: inline-block;
+	vertical-align: top;
 }
 
 	.list-three .three_content_image {
