@@ -2257,17 +2257,22 @@ padding: 120px 10px 50px 350px;
  	margin: auto;
  }
 
+.marker {
+ background: linear-gradient(transparent 70%, #ff9ece 70%);
+font-weight: bold;
+}
+
 
  .section-title{
  	text-align: center;
  	font-size: 40px;
- 	margin: 80px 0px 30px 0px;
+	margin: 25px 0px 30px 0px;
  }
 
  .section-content{
  	line-height: 30px;
  	text-align: center;
- 	margin-bottom: 55px;
+	margin-bottom: 25px;
  }
 
  .list-three-content-area{
@@ -2278,8 +2283,9 @@ padding: 120px 10px 50px 350px;
  }
 
  .list-four-content-area{
-	 width: 70%;
-	 margin: 0px auto 50px auto;
+	 width: 24%;
+	 display: inline-block;
+	 vertical-align: text-top;
  }
 
  .list-four .four_content_image{
@@ -2289,8 +2295,23 @@ padding: 120px 10px 50px 350px;
  }
 
 .text_of_How_to{
-	text-align: left;
-	margin-left: 130px;
+	border-right: 2px solid #f2f1ef;
+	padding: 0px 10px 0px 10px;
+	height: 220px;
+}
+
+.text_of_how_to_last{
+border-right: 0;
+}
+
+.content-area-howto{
+    padding: 0.5em 0.5em;
+    margin: 2em 0;
+    box-shadow: 	3px 6px 10px 3px rgba(0,0,0,.08);
+}
+
+.font_strong{
+	font-weight: bold;
 }
 
 .item_content_area{
@@ -2366,8 +2387,14 @@ padding: 120px 10px 50px 350px;
     margin: 12px;
 	}
 	.list-four-content-area{
-	 width: 70%;
-	 margin: 0px auto 50px auto;
+	 width: 90%;
+	}
+
+	.text_of_How_to{
+		height: auto;
+		border-top: 2px solid #f2f1ef;
+		border-right: 0;
+		padding: 15px;
 	}
 
 	.list-three-price{
@@ -2408,6 +2435,10 @@ padding: 120px 10px 50px 350px;
 	.text_of_How_to {
 		text-align: unset;
 		margin-left: 0px;
+		border-right: 0;
+		border-top: 2px solid #f2f1ef;
+		padding: 1.25rem 0;
+	height: auto;
 	}
 
 	.item_content_area{
@@ -2449,13 +2480,17 @@ padding: 120px 10px 50px 350px;
 }
 
 @media screen and (max-width: 399px) {
+	.content-body {
+    width: 90%;
+	}
+
 	.list-three-content-area{
-		width: 85%;
+		width: 100%;
 
 	}
 
 	.list-four-content-area {
-	    width: 85%;
+	    width: 100%;
 	    margin: 0px;
 	    display: inline-grid;
 	}
@@ -2466,9 +2501,16 @@ padding: 120px 10px 50px 350px;
     margin-top: 30px;
 	}
 
+.section-title{
+	    margin: 30px 0px 30px 0px;
+}
+
 .text_of_How_to {
-	text-align: unset;
-	margin-left: 0px;
+	margin: 0px 10px 0px 10px;
+	border-top: 2px solid #f2f1ef;
+	border-right: 0;
+	padding: 20px 5px;
+	height: auto;
 }
 
 .item_content_area{
