@@ -146,21 +146,25 @@
           </ol>
         </div>
       </div>
-    <div class="sticky">
-        <div class="content-area-order">
+      <div id="modal-open" class="sticky button-link">
           <h3 class="text_of_order">
-            Please enter your name and your email address.
+            Get Started from here
           </h3>
-          <form>
+      </div>
+      <div id="modal-content">
+          <form id="overlay">
               <div class="order-form">
+                <div class="order-text">
+                  Have you checked the items you want?<br>
+                  Please enter your name and email address and start Store for you!
+                </div>
                 <input type="text" id="customerName" placeholder="name">
                 <input type="text" id="customerEmail" placeholder="email address">
               </div>
               <div class="order">
-                <button id="orderbutton" class="btn btn-primary btn-action btn-fill">Order</button>
+                <button id="orderbutton" class="btn btn-primary btn-action btn-fill">Start Store for you</button>
               </div>
-            </form>
-        </div>
+          </form>
       </div>
       <div class="content-area">
         <h3 class="section-title">
@@ -1145,13 +1149,17 @@
     request.send('payload={\"channel\": \"#order\", \"username\": \"' + customerName + '\", \"text\": \"' + customerEmail + '\", \"icon_emoji\": \":ghost:\"}');
     request.onreadystatechange = function() {
       if(request.readyState === 4 && request.status === 200) {
-          
+
         console.log( JSON.parse(request.responseText) );
-          
+
       }
     }
   }
 </script>
 <!-- Wrapper-->
+
+<!-- JavaScriptの読み込み -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="js/modal.js"></script>
 </body>
 </html>

@@ -2330,6 +2330,81 @@ border-right: 0;
  	margin-bottom: 10px;
  }
 
+ .sticky {
+ 	  position: fixed;
+ 	  bottom: 30px;
+ 	  right: 30px;
+ 	  padding: 3px 10px;
+ 		z-index: 1 ;
+ }
+
+ .text_of_order{
+ 	display: inline-block;
+   color: #FFF;/*文字色*/
+ 	background-color: #1eb858;
+   line-height: 1;
+   text-decoration: none;
+   letter-spacing: 0.05em;/*字間*/
+   padding: 0.2em 1em;/*ボタン内の余白*/
+   border-radius: 3px;/*角の丸み*/
+     cursor: pointer;
+   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);/*影*/
+   -webkit-tap-highlight-color: transparent;
+   transition: .3s ease-out;/*変化を緩やかに*/
+ 	padding: 20px 30px 20px 30px;
+ 	font-weight: bold;
+ }
+
+ .order-checkbox{
+ 	text-align: center;
+ 	margin: auto;
+ }
+
+ #modal-content{
+ 	width: 50% ;
+ 	margin: 0 ;
+ 	padding: 10px 20px ;
+ 	border: 2px solid #aaa ;
+ 	background: #fff ;
+ 	position: fixed ;
+ 	display: none ;
+ 	z-index: 2 ;
+ }
+
+ #modal-overlay{
+ 	z-index:1;
+ 	display:none;
+ 	position:fixed;
+ 	top:0;
+ 	left:0;
+ 	width:100%;
+ 	height:120%;
+ 	background-color:rgba(0,0,0,0.75);
+ 	width:100%;
+ 	height:120%;
+ 	position:fixed;
+ 	top:0;
+ 	left:0;
+ }
+
+ .order-text{
+ 	font-size: 18px;
+ 	line-height: 30px;
+ 	margin-bottom: 30px;
+ }
+
+ .order-form {
+ 	text-align: center;
+ 	padding: 0.5em 0.5em;
+ 	margin: 0.5em 0;
+ }
+
+ .order {
+ 	text-align: center;
+ 	padding: 0.5em 0.5em;
+ 	margin: 0.5em 0;
+ }
+
 .campaign {
     font-size: 37px;
     text-align: center;
@@ -2411,6 +2486,10 @@ border-right: 0;
 		font-size: 26px;
 	}
 
+	#modal-content{
+  	width: 90% ;
+  }
+
 }
 
 @media screen and (min-width: 400px) and (max-width: 699px) {
@@ -2476,6 +2555,10 @@ border-right: 0;
 	.stock{
 	 margin-bottom: 30px;
  }
+
+ #modal-content{
+	 width: 90% ;
+	}
 
 }
 
@@ -2552,51 +2635,16 @@ border-right: 0;
     margin-bottom: 30px;
 	}
 
+	#modal-content{
+		width: 90% ;
+	}
+
 }
 
 .copyright{
 	text-align: center;
 }
 
-.content-area-order{
-    /*padding: 0.5em 11.5em;*/
-    margin: 0em 0;
-	box-shadow: 	3px 6px 10px 3px rgba(0,0,0,.08);
-	background-color: white;
-}
-
-.sticky {
-	z-index: 1;
-	display: flex;
-	align-items: center;
-	justify-content: right;
-    postion: -webkit-sticky;
-    position: sticky;
-	top: 110px;
-}
-
-.order {
-	text-align: center;
-	padding: 0.5em 0.5em;
-	margin: 0.5em 0;
-}
-
-.order-form {
-	text-align: center;
-	padding: 0.5em 0.5em;
-	margin: 0.5em 0;
-}
-
-.text_of_order{
-	text-align: center;
-	padding: 10px 10px 10px 10px;
-	margin: 10px 10px 10px 10px;
-}
-
-.order-checkbox{
-	text-align: center;
-	margin: auto;
-}
 
 /*---------------------------------------------------
 ------- Media Queries for Split Layout Ends ---------
