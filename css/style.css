@@ -2558,6 +2558,45 @@ border-right: 0;
 	text-align: center;
 }
 
+.content-area-order{
+    /*padding: 0.5em 11.5em;*/
+    margin: 0em 0;
+	box-shadow: 	3px 6px 10px 3px rgba(0,0,0,.08);
+	background-color: white;
+}
+
+.sticky {
+	z-index: 1;
+	display: flex;
+	align-items: center;
+	justify-content: right;
+    postion: -webkit-sticky;
+    position: sticky;
+	top: 110px;
+}
+
+.order {
+	text-align: center;
+	padding: 0.5em 0.5em;
+	margin: 0.5em 0;
+}
+
+.order-form {
+	text-align: center;
+	padding: 0.5em 0.5em;
+	margin: 0.5em 0;
+}
+
+.text_of_order{
+	text-align: center;
+	padding: 10px 10px 10px 10px;
+	margin: 10px 10px 10px 10px;
+}
+
+.order-checkbox{
+	text-align: center;
+	margin: auto;
+}
 
 /*---------------------------------------------------
 ------- Media Queries for Split Layout Ends ---------
