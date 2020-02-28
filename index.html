@@ -42,6 +42,7 @@
 </head>
 <body>
 <!-- Load Facebook SDK for JavaScript -->
+<!-- 
 <div id="fb-root"></div>
 <script>
   window.fbAsyncInit = function() {
@@ -59,14 +60,17 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 </script>
+-->
 
 <!-- Your customer chat code -->
+<!-- 
 <div class="fb-customerchat"
   attribution=setup_tool
   logged_in_greeting="Hi! Please chat us if you have some requests or products you want."
   logged_out_greeting="Hi! Please chat us if you have some requests or products you want."
   page_id="140955823330409">
 </div>
+-->
 <div class="wrapper">
   <div class="container">
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -1358,7 +1362,7 @@
         selectedProducts.push(products[i].value);
       }
     }
-    request.open('POST', 'https://hooks.slack.com/services/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');
+    request.open('POST', 'https://hooks.slack.com/services/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');
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     //request.send('payload={\"channel\": \"#order\", \"username\": \"' + customerName + '\", \"text\": \"1,2,3,4,5,6,7,8,9\", \"icon_emoji\": \":ghost:\"}');
     request.send('payload={\"channel\": \"#order\", \"username\": \"' + customerName + '\", \"text\": \"Email=' + customerEmail + ',selectedProducts=' + selectedProducts + '\", \"icon_emoji\": \":ghost:\"}');
