@@ -2406,7 +2406,6 @@ border-right: 0;
  .order {
  	text-align: center;
  	padding: 0.5em 0.5em;
- 	margin: 0.5em 0;
  }
 
 .campaign {
@@ -2446,6 +2445,27 @@ border-right: 0;
 
  .answer{
 	 margin-bottom:30px;
+ }
+
+ .announce{
+	 text-align: center;
+	 margin: 10px 0px 20px 0px;
+	 color: #e91e63;
+ }
+
+ .copyright{
+ 	float: left;
+ 	margin-left: 8%;
+ }
+
+ .footer_contents{
+ 	float: right;
+ 	margin-left:30px;
+ }
+
+ .footer_menue{
+ 	margin-right: 8%;
+ 	color: Black;
  }
 
  @media only screen and (min-width: 1024px) and (max-width: 1410px) {
@@ -2564,6 +2584,22 @@ border-right: 0;
 	 width: 90% ;
 	}
 
+	.copyright {
+	    text-align: center;
+	    margin-top: 15px;
+	    margin-left: 0px;
+			float: none;
+	}
+
+	.footer_menue {
+		text-align: center;
+		margin-right: 0px;
+	}
+	.footer_contents {
+		display: inline;
+		margin: 0px 10px 0px 10px;
+		float: none;
+
 }
 
 @media screen and (max-width: 399px) {
@@ -2643,21 +2679,23 @@ border-right: 0;
 		width: 90% ;
 	}
 
-}
+	.copyright {
+	    text-align: center;
+	    margin-top: 15px;
+	    margin-left: 0px;
+			float: none;
+	}
 
-.copyright{
-	float: left;
-	margin-left: 8%;
-}
+	.footer_menue {
+		text-align: center;
+		margin-right: 0px;
+	}
+	.footer_contents {
+		display: inline;
+		margin: 0px 10px 0px 10px;
+		float: none;
+	}
 
-.footer_contents{
-	float: right;
-	margin-left:30px;
-}
-
-.footer_menue{
-	margin-right: 8%;
-	color: Black;
 }
 
 
