@@ -64,64 +64,78 @@
   <!-- /.container-fluid -->
   <div class="main app form" id="main"><!-- Main Section-->
     <div class="hero-section">
-      <!-- Tester List -->
-      <!-- Subscribe Form -->
-      <div class="cta-sub no-color" id="purchase">
-        <div class="container">
-          <div class="cta-inner">
-            <div class="form wow fadeInUp" data-wow-delay="0.3s">
-              <h1>
-                Store for you
-              </h1>
-              <p>
-                The subscription service where you can try your favorite Japanese items.<br>
-                You can get samples of Japanese items to your home, such as those found in Japanese drugstores.
-              </p>
-            </div>
-          </div>
-        </div>
       </div>
-    </div>
-      <div class="content-area">
-        <ul class="list-three-price">
-          <h3 class="section-title">
-            Checkout here.
-          </h3>
-          <li class="pricing">
-            <h4>
-              RM60.00
-            </h4>
-            <div class="join">
-              <button class="btn btn-primary btn-action btn-fill checkout" value="myr" onclick="gtag('event', 'conversion', {'event_category': 'click', 'event_label': 'myr subscription', 'value': '0'});">Get Started</button>
-            </div>
-          </li>
-          <li class="pricing">
-            <h4>
-              USD15.00
-            </h4>
-            <div class="join">
-              <button class="btn btn-primary btn-action btn-fill checkout"  value="usd" onclick="gtag('event', 'conversion', {'event_category': 'click', 'event_label': 'usd subscription', 'value': '0'});">Get Started</button>
-            </div>
-          </li>
-          <li class="pricing">
-            <h4>
-              SGD20.00
-            </h4>
-            <div class="join">
-              <button class="btn btn-primary btn-action btn-fill checkout"  value="sgd"  onclick="gtag('event', 'conversion', {'event_category': 'click', 'event_label': 'sgd subscription', 'value': '0'});">Get Started</button>
-            </div>
-          </li>
-        </ul>
-        <div class="campaign">
-          Now the first month payment is half price!
-        </div>
-      </div>
+    <div class="content-body-checkout">
+    <h1 class="page_title">
+      Checkout page
+    </h1>
+    <div class="checkout_form">
+    <h2 class="section_title">
+      Billing and shipping details
+    </h2>
+    <h3 class="form_title">
+      First name<br>
+    </h3>
+      <input type="text" id="customerName" class="form" placeholder="First name">
+    <h3 class="form_title">
+      Last name<br>
+    </h3>
+      <input type="text" id="customerName" class="form" placeholder="Last name">
+    <h3 class="form_title">
+      Country<br>
+    </h3>
+      <input type="text" id="customerName" class="form" placeholder="Country">
+    <h3 class="form_title">
+      Address<br>
+    </h3>
+      <input type="text" id="customerName" class="form" placeholder="Address">
+    <h3 class="form_title">
+      State<br>
+    </h3>
+      <input type="text" id="customerName" class="form" placeholder="State">
+    <h3 class="form_title">
+      Postcode / ZIP<br>
+    </h3>
+      <input type="text" id="customerName" class="form" placeholder="Postcode / ZIP">
+    <h3 class="form_title">
+      Phone number<br>
+    </h3>
+      <input type="text" id="customerName" class="form" placeholder="Phone number">
+    <h3 class="form_title">
+      Email address<br>
+    </h3>
+      <input type="text" id="customerName" class="form" placeholder="Email address">
+  </div>
+  <div class="checkout_form_card">
+    <h2 class="section_title">
+      Credit Card (Stripe)
+    </h2>
+    <h3 class="form_title">
+      Card Number<br>
+    </h3>
+      <input type="text" id="customerName" class="form" placeholder="Card Number">
+    <h3 class="form_title">
+      Expiry Date<br>
+    </h3>
+      <input type="text" id="customerName" class="form" placeholder="Expiry Date">
+    <h3 class="form_title">
+      Card Code (CVC)<br>
+    </h3>
+      <input type="text" id="customerName" class="form" placeholder="CVC">
+  </div>
+  <diV class="announce_checkout">
+    Price : RM60.00<br>
+    (Now the first month payment is half price!)<br>
+    Pay with your credit card via Stripe
+   </div>
+  <div class="order">
+    <button id="orderbutton" class="btn btn-primary btn-action btn-fill">place order</button>
+  </div>
 
-      </div>
 
       <!-- <a id="back-top" class="back-to-top page-scroll" href="#main"> <i class="ion-ios-arrow-thin-up"></i> </a>-->
-  </div>
     <!-- Scroll To Top Ends-->
+  </div>
     <div class="footer">
       <ul>
         <div class="footer_menue">
