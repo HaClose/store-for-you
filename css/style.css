@@ -734,8 +734,6 @@ font-family: Arial;
 	color: #1eb858;
 }
 
-
-
 input[type="text"],
 textarea,
 textarea.form-control {
@@ -774,6 +772,14 @@ textarea.form-control:focus {
 input[type="text"]:-moz-placeholder, textarea:-moz-placeholder, textarea.form-control:-moz-placeholder { color: #888; }
 input[type="text"]:-ms-input-placeholder, textarea:-ms-input-placeholder, textarea.form-control:-ms-input-placeholder { color: #888; }
 input[type="text"]::-webkit-input-placeholder, textarea::-webkit-input-placeholder, textarea.form-control::-webkit-input-placeholder { color: #888; }
+
+
+.checkout_form
+input[type="text"],
+textarea,
+textarea.form-control {
+	width: 90%;
+}
 
 
 
@@ -951,6 +957,8 @@ input[type="text"]::-webkit-input-placeholder, textarea::-webkit-input-placehold
 	color: #FFFFFF;
 	background: #1eb858;
 	border-color: #1eb858;
+	height: 60px;
+  font-weight: bold;
 }
 
 .app .btn-action:hover {
@@ -2261,6 +2269,11 @@ a{
  	margin: auto;
  }
 
+ .content-body-checkout{
+	 width: 65%;
+	 margin: auto;
+ }
+
 .marker {
  background: linear-gradient(transparent 70%, #ff9ece 70%);
 font-weight: bold;
@@ -2466,6 +2479,45 @@ border-right: 0;
  .footer_menue{
  	margin-right: 8%;
  	color: Black;
+ }
+
+ .page_title{
+	 text-align: center;
+	 font-size: 45px;
+	 margin-bottom: 55px;
+ }
+
+ .checkout_form{
+	 display: inline-block;
+	 vertical-align: top;
+	 width: 60%;
+ }
+
+.checkout_form_card{
+	display: inline-block;
+	vertical-align: top;
+
+}
+
+ .section_title{
+	 font-size: 20px;
+	 margin:30px 0px 30px 0px;
+ }
+
+.form_title{
+	margin: 0px 0px 10px 0px;
+}
+
+ .form{
+	 margin: 0px 0px 20px 0px!important;
+ }
+
+ .announce_checkout{
+	 text-align: center;
+	 line-height: 30px;
+	 margin: 25px 0px 10px 0px;
+	 color: #e91e63;
+	 font-size: 23px;
  }
 
  @media only screen and (min-width: 1024px) and (max-width: 1410px) {
@@ -2695,6 +2747,27 @@ border-right: 0;
 		display: inline;
 		margin: 0px 10px 0px 10px;
 		float: none;
+	}
+
+	.content-body-checkout{
+		width: 80%
+	}
+
+	.app .hero-section {
+    padding: 130px 0 0 0;
+	}
+
+	.checkout_form {
+    width: 100%;
+	}
+
+	.checkout_form_card {
+		width: 100%;
+	}
+
+	.announce_checkout {
+    font-size: 13px;
+		line-height: 18px;
 	}
 
 }
