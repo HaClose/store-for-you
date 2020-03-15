@@ -17,7 +17,7 @@
 <!-- Resource style -->
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <!-- Jquery and Js Plugins -->
-<script type="text/javascript" src="js/jquery-2.1.1.js"></script>
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
 <script type="text/javascript" src="js/plugins.js"></script>
@@ -129,13 +129,14 @@
             </div>
             <div class="list-four-content-area">
               <li class="text_of_How_to">
-                2, Please enter <span class="font_strong">your name and email address</span> from “Get Started from here” button.
+                2, Please enter <span class="font_strong">your name and email address</span> from “Get Started from here” button.<br>
+                After pressing the "PROCESS TO CHECKOUT" button,<span class="font_strong"> you go to the checkout form</span>.
               </li>
             </div>
             <div class="list-four-content-area">
               <li class="text_of_How_to">
-                3, Please press the "PROCESS TO CHECKOUT" button and complete the checkout with the required information.
-                <span class="font_strong">RM60.00 / USD15.00 / SGD20.00</span><br>
+                3, Please complete the checkout with the required information.<br>
+                The price is only <span class="font_strong">RM60.00</span>!<br>
                 <span class="font_strong marker">Now the first month payment is half price!</span>
               </li>
             </div>
@@ -151,24 +152,21 @@
 
       <div id="modal-open" class="sticky button-link">
           <h3 class="text_of_order">
-            Get Started from here
+            Get Started from here　<img id="cart" class="tohokuret" src="images/cart.png">  <div class="tohokuret"></div>
           </h3>
       </div>
       <div id="modal-content">
           <form id="overlay">
-              <div class="order-form">
-                <div class="order-text">
-                  Have you checked the items you want?<br>
-                  Please enter your name and email address and start Store for you!
-                </div>
-                <input type="text" id="customerName" placeholder="name">
-                <input type="text" id="customerEmail" placeholder="email address">
-              </div>
+            <div class="order-text">
+              Please enter your name and email address and start Store for you!
+            </div>
+            <div class="order-form">
+              <h3 class="top_form"> First Name </h3><input type="text" id="customerName" placeholder="First name"><br>
+              <h3 class="top_form">Last Name </h3><input type="text" id="customerName" placeholder="Last name"><br>
+              <h3 class="top_form">Email address </h3><input type="text" id="customerEmail" placeholder="Email address">
+            </div>
               <div class="order">
                 <button id="orderbutton" class="btn btn-primary btn-action btn-fill">Proceed to Checkout</button>
-              </div>
-              <div class="announce">
-                Payment screen of Stripe is displayed.
               </div>
           </form>
       </div>
@@ -176,8 +174,11 @@
         <h3 class="section-title">
           Items
         </h3>
+        <div class="announce">
+          Check the products you are looking for!
+        </div>
         <div class="section-content">
-          <ul class="list-four">
+          <ul id="products" class="list-four">
             <div class="item_content_area">
               <Label>
               <div class="number">1</div>
@@ -1353,6 +1354,17 @@
   </div>
 </div> <!-- Main Section -->
 </div>
+
+<!-- cartカウント -->
+<script>
+$(function() {
+    $('input:checkbox').change(function() {
+        var cnt = $('#products input:checkbox:checked').length;
+        $('div.tohokuret').text(cnt);
+    }).trigger('change');
+});
+</script>
+
 <script>
   document.getElementById("orderbutton").onclick = function(e) {
     const request = new XMLHttpRequest();

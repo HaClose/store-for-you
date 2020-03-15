@@ -17,7 +17,7 @@
 <!-- Resource style -->
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <!-- Jquery and Js Plugins -->
-<script type="text/javascript" src="js/jquery-2.1.1.js"></script>
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
 <script type="text/javascript" src="js/plugins.js"></script>
@@ -129,7 +129,8 @@
     Pay with your credit card via Stripe
    </div>
   <div class="order">
-    <button id="orderbutton" class="btn btn-primary btn-action btn-fill">place order</button>
+    <input type="submit" id="orderbutton" class="btn btn-primary btn-action btn-fill" value="Place Order">
+    <p id="complete"></p>
   </div>
 
 
@@ -241,7 +242,19 @@
 window.addEventListener('popstate', function() {
 	handler.close();
 });
+
+
+$(function() {
+  $('#orderbutton').on('sumbit', function() {
+		// 1．textメソッドで書き換え
+		$("#complete").text("Thank you for your placing an order. Our staff will send confirmation email to you!");
+
+    //$("#complete").delay(1000).slideUp('slow');
+	});
+});
+
 </script>
+
 <!-- Checkout end -->
 </body>
 </html>
