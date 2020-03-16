@@ -1985,6 +1985,10 @@ font-size: 12px;
 	font-family:"Open Sans";
 }
 
+.button-link:hover{
+	text-decoration: none;
+}
+
 
 /* -------------------------------------------------------
 ----------- Bact-to-Top Styling Starts Here --------------
@@ -2538,9 +2542,8 @@ border-right: 0;
 	 font-size: 23px;
  }
 
- #complete{
-
-
+ .page_title {
+	 margin-top: 150px;
  }
 
  @media only screen and (min-width: 1024px) and (max-width: 1410px) {
@@ -2688,9 +2691,51 @@ border-right: 0;
 	.app .btn-action{
 		margin: 10px 0px;
 	}
+
+	.products_form{
+		width: 100%
+	}
+
+	.app .hero-section {
+    padding: 130px 0 0 0;
+	}
+
+	.checkout_form {
+    width: 100%;
+	}
+
+	.checkout_form_card {
+		width: 100%;
+	}	.announce_checkout {
+	    font-size: 13px;
+			line-height: 18px;
+		}
+
+		.order-text {
+		    font-size: 14px;
+		    line-height: 25px;
+		    margin: 5px;
+		}
+
+		.top_form {
+		    margin: 15px 0px 5px 0px;
+		}
+
+		.app .btn-action{
+			margin: 10px 0px;
+		}
+
+
+		.content-body-checkout{
+			width: 90%;
+			margin: auto;
+		}
+
+
 }
 
 @media screen and (max-width: 399px) {
+
 	.content-body {
     width: 90%;
 	}
@@ -2784,9 +2829,6 @@ border-right: 0;
 		float: none;
 	}
 
-	.content-body-checkout{
-		width: 80%
-	}
 
 	.app .hero-section {
     padding: 130px 0 0 0;
@@ -2817,6 +2859,16 @@ border-right: 0;
 
 	.app .btn-action{
 		margin: 10px 0px;
+	}
+
+
+	.content-body-checkout{
+		width: 90%;
+		margin: auto;
+	}
+
+	.products_form{
+		width: 100%
 	}
 }
 

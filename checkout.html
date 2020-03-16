@@ -41,7 +41,7 @@
 
 </head>
 <body onload="getParam()">
-<div class="wrapper">
+<div class="checkout_wrapper">
   <div class="container">
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -64,8 +64,6 @@
   </div>
   <!-- /.container-fluid -->
   <div class="main app form" id="main"><!-- Main Section-->
-    <div class="hero-section">
-      </div>
     <div class="content-body-checkout">
     <h1 class="page_title">
       Checkout page
@@ -74,9 +72,9 @@
         Your selected Items
     </h2>
     <form name="selectedProductsForm" id="payment-form" method="post" action="start_subscription.php">
-      <input type="text" name="selectedProducts" class="form" size="65" readonly="readonly">
+      <input type="text" name="selectedProducts" class="products_form" size="65" readonly="readonly">
       <div id="card-errors" role="alert"></div>
-      <div class="checkout_form">
+    <div class="checkout_form">
       <h2 class="section_title">
         Billing and shipping details
       </h2>
@@ -148,6 +146,7 @@
       <!-- <a id="back-top" class="back-to-top page-scroll" href="#main"> <i class="ion-ios-arrow-thin-up"></i> </a>-->
     <!-- Scroll To Top Ends-->
   </div>
+
     <div class="footer">
       <ul>
         <div class="footer_menue">
