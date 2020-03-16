@@ -24,6 +24,7 @@
 <script type="text/javascript" src="js/menu.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
 <script src="js/jquery.subscribe.js"></script>
+<script src="https://js.stripe.com/v3/"></script>
 <script src="https://checkout.stripe.com/checkout.js"></script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -72,63 +73,67 @@
     <h2 class="section_title">
         Your selected Items
     </h2>
-    <form name="selectedProductsForm" action="#">
-        <input type="text" name="selectedProducts" class="form" size="65" readonly="readonly">
-    </form>
-    <div class="checkout_form">
-    <h2 class="section_title">
-      Billing and shipping details
-    </h2>
-    <h3 class="form_title">
-      First name<br>
-    </h3>
-      <input type="text" id="customerName" class="form" placeholder="First name">
-    <h3 class="form_title">
-      Last name<br>
-    </h3>
-      <input type="text" id="customerName" class="form" placeholder="Last name">
-    <h3 class="form_title">
-      Country<br>
-    </h3>
-      <input type="text" id="customerName" class="form" placeholder="Country">
-    <h3 class="form_title">
-      Address<br>
-    </h3>
-      <input type="text" id="customerName" class="form" placeholder="Address">
-    <h3 class="form_title">
-      State<br>
-    </h3>
-      <input type="text" id="customerName" class="form" placeholder="State">
-    <h3 class="form_title">
-      Postcode / ZIP<br>
-    </h3>
-      <input type="text" id="customerName" class="form" placeholder="Postcode / ZIP">
-    <h3 class="form_title">
-      Phone number<br>
-    </h3>
-      <input type="text" id="customerName" class="form" placeholder="Phone number">
-    <h3 class="form_title">
-      Email address<br>
-    </h3>
-      <input type="text" id="customerName" class="form" placeholder="Email address">
-  </div>
-  <div class="checkout_form_card">
-    <h2 class="section_title">
-      Credit Card (Stripe)
-    </h2>
-    <h3 class="form_title">
-      Card Number<br>
-    </h3>
-      <input type="text" id="customerName" class="form" placeholder="Card Number">
-    <h3 class="form_title">
-      Expiry Date<br>
-    </h3>
-      <input type="text" id="customerName" class="form" placeholder="Expiry Date">
-    <h3 class="form_title">
-      Card Code (CVC)<br>
-    </h3>
-      <input type="text" id="customerName" class="form" placeholder="CVC">
-  </div>
+    <form name="selectedProductsForm" id="payment-form" method="post" action="start_subscription.php">
+      <input type="text" name="selectedProducts" class="form" size="65" readonly="readonly">
+      <div id="card-errors" role="alert"></div>
+      <div class="checkout_form">
+      <h2 class="section_title">
+        Billing and shipping details
+      </h2>
+      <h3 class="form_title">
+        First name<br>
+      </h3>
+        <input type="text" id="customerFirstName" class="form" placeholder="First name">
+      <h3 class="form_title">
+        Last name<br>
+      </h3>
+        <input type="text" id="customerLastName" class="form" placeholder="Last name">
+      <h3 class="form_title">
+        Country<br>
+      </h3>
+        <input type="text" id="customerCountry" class="form" placeholder="Country">
+      <h3 class="form_title">
+        Address<br>
+      </h3>
+        <input type="text" id="customerAddress" class="form" placeholder="Address">
+      <h3 class="form_title">
+        State<br>
+      </h3>
+        <input type="text" id="customerState" class="form" placeholder="State">
+      <h3 class="form_title">
+        Postcode / ZIP<br>
+      </h3>
+        <input type="text" id="customerPostcode" class="form" placeholder="Postcode / ZIP">
+      <h3 class="form_title">
+        Phone number<br>
+      </h3>
+        <input type="text" id="customerPhoneNumber" class="form" placeholder="Phone number">
+      <h3 class="form_title">
+        Email address<br>
+      </h3>
+        <input type="text" id="customerEmail" class="form" placeholder="Email address">
+    </div>
+    <div class="checkout_form_card">
+      <h2 class="section_title">
+        Credit Card (Stripe)
+      </h2>
+      <h3 class="form_title">
+        Card Number<br>
+      </h3>
+        <!--<input type="text" id="customerCardNumber" class="form" placeholder="Card Number">-->
+        <li><div id="card-number" class="stripe-input"></div></li>
+      <h3 class="form_title">
+        Expiry Date<br>
+      </h3>
+        <!--<input type="text" id="customerExpiryDate" class="form" placeholder="Expiry Date">-->
+        <li><div id="card-expiry" class="stripe-input"></div></li>
+      <h3 class="form_title">
+        Card Code (CVC)<br>
+      </h3>
+        <!--<input type="text" id="customerCVC" class="form" placeholder="CVC">-->
+        <li><div id="card-cvc" class="stripe-input"></div></li>
+    </div>
+  </form>
   <diV class="announce_checkout">
     Price : RM60.00<br>
     (Now the first month payment is half price!)<br>
@@ -159,13 +164,60 @@
 <!-- Wrapper-->
 <!-- Checkout start -->
 <script>
+  let param = location.search;
+  const publicKey = 'pk_test_3LYqp76Baj0Z7WuetsAQEJFc';
+  var stripe = Stripe(publicKey);
+  var elements = stripe.elements();
+  const cardNumber = elements.create('cardNumber',{placeholder:'card Number'});
+  cardNumber.mount('#card-number');
+  const cardExpiry = elements.create('cardExpiry',{placeholder:'card Number'});
+  cardExpiry.mount('#card-expiry');
+  const cardCvc = elements.create('cardCvc',{placeholder:'card Number'});
+  cardCvc.mount('#card-cvc');
+  let customerName = '';
+  let customerEmail = '';
+
   function getParam(){
-    let param = location.search;
     if (!param) return false;
     param = param.substring(1);
     param = param.split("=");
     document.selectedProductsForm.selectedProducts.value = param[1];
   }
+
+  document.getElementById("orderbutton").onclick = function(e) {
+    const request = new XMLHttpRequest();
+    customerName = document.getElementById("customerFirstName").value + document.getElementById("customerLastName").value;
+    customerEmail = document.getElementById("customerEmail").value;
+
+    request.open('POST', 'https://hooks.slack.com/services/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',false);
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    //request.send('payload={\"channel\": \"#order\", \"username\": \"' + customerName + '\", \"text\": \"1,2,3,4,5,6,7,8,9\", \"icon_emoji\": \":ghost:\"}');
+    request.send('payload={\"channel\": \"#order\", \"username\": \"' + customerName + '\", \"text\": \"Email=' + customerEmail + ',selectedProducts=' + param + '\", \"icon_emoji\": \":ghost:\"}');
+    if(request.status === 200) {
+
+    // Stripeサーバにクレジットカード情報を送信してクレジットカードトークンを取得する
+    stripe.createToken(cardNumber).then(function(result) {
+        if (result.error) {
+            var errorElement = document.getElementById('card-errors');
+            errorElement.textContent = result.error.message;
+        } else {
+            // クレジットカードトークンを自サーバにsubmitする
+            stripeTokenHandler(result.token);
+        }
+    });
+
+    function stripeTokenHandler(token) {
+    var form = document.getElementById('payment-form');
+    var hiddenInput = document.createElement('input');
+    hiddenInput.setAttribute('type', 'hidden');
+    hiddenInput.setAttribute('name', 'stripeToken');
+    hiddenInput.setAttribute('value', token.id);
+    form.appendChild(hiddenInput);
+
+    form.submit();
+    }
+  }
+}
 </script>
 <!-- Checkout end -->
 </body>

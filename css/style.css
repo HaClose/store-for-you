@@ -2772,6 +2772,13 @@ border-right: 0;
 
 }
 
+.stripe-input {
+    width: 200px;
+    padding:8px;
+    margin-bottom:5px;
+    border: 1px solid #BBBBBB;
+    border-radius:5px;
+}
 
 /*---------------------------------------------------
 ------- Media Queries for Split Layout Ends ---------
