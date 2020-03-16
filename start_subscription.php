@@ -12,23 +12,8 @@ $token = $_POST['stripeToken'];
 $email = $_POST['stripeEmail'];
 $name  = $_POST['stripeName'];
 
-$currency  = $_POST['stripeCurrency'];
-$amount;
-$plan;
-switch ($currency) {
-  case "myr":
-    $amount = 6000;
-    $plan = 'plan_Ga02uj3TdscKUn';
-    break;
-  case "usd":
-    $amount = 1500;
-    $plan = 'plan_Ga02GYopMwCa1e';
-    break;
-  case "sgd":
-    $amount = 2000;
-    $plan = 'plan_Ga02qaKNdrZlLP';
-    break;
-}
+//$plan = 'plan_Ga02uj3TdscKUn'; // 本番
+$plan = 'plan_GZzxrVEaPfzkPr'; // テスト
 
 try {
   $customer = \Stripe\Customer::create(array(
@@ -42,17 +27,8 @@ try {
   $subscription = \Stripe\Subscription::create(array(
     "customer" => $customerId,
     'items' => [['plan' => $plan]],
-    //'trial_end' => time() + 5,
   ));
-  /* 
-  $charge = \Stripe\Charge::create(array(
-    "amount" => $amount,
-    "description" => "Subscription Service",
-    "currency" => $currency,
-    //"source" => $token,
-    "customer" => $customerId,
-  ));
-  */
+  
 }catch (\Stripe\Error\Card $e) {
   // 決済失敗時の処理
   die('決済が完了しませんでした');

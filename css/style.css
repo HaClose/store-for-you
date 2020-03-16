@@ -2820,6 +2820,29 @@ border-right: 0;
 	}
 }
 
+.stripe-input {
+	/*
+    width: 200px;
+    padding:8px;
+    margin-bottom:5px;
+    border: 1px solid #BBBBBB;
+	border-radius:5px;
+	*/
+	height: 45px;
+	width: 200px;
+    padding:8px;
+    margin: 0;
+    padding: 0 20px;
+    vertical-align: middle;
+    background: #F8F8F8;
+    border: 1px solid #DDDDDD;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 50px;
+	color: #888888;
+	margin: 0px 0px 20px 0px!important;
+}
 
 /*---------------------------------------------------
 ------- Media Queries for Split Layout Ends ---------

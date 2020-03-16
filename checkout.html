@@ -24,6 +24,7 @@
 <script type="text/javascript" src="js/menu.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
 <script src="js/jquery.subscribe.js"></script>
+<script src="https://js.stripe.com/v3/"></script>
 <script src="https://checkout.stripe.com/checkout.js"></script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -39,7 +40,7 @@
 <meta name="google-site-verification" content="akNF8z-DyNMWfZE3L6vnqFJsAGn_zvRTWECIG881DR4" />
 
 </head>
-<body>
+<body onload="getParam()">
 <div class="wrapper">
   <div class="container">
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -69,60 +70,70 @@
     <h1 class="page_title">
       Checkout page
     </h1>
-    <div class="checkout_form">
     <h2 class="section_title">
-      Billing and shipping details
+        Your selected Items
     </h2>
-    <h3 class="form_title">
-      First name<br>
-    </h3>
-      <input type="text" id="customerName" class="form" placeholder="First name">
-    <h3 class="form_title">
-      Last name<br>
-    </h3>
-      <input type="text" id="customerName" class="form" placeholder="Last name">
-    <h3 class="form_title">
-      Country<br>
-    </h3>
-      <input type="text" id="customerName" class="form" placeholder="Country">
-    <h3 class="form_title">
-      Address<br>
-    </h3>
-      <input type="text" id="customerName" class="form" placeholder="Address">
-    <h3 class="form_title">
-      State<br>
-    </h3>
-      <input type="text" id="customerName" class="form" placeholder="State">
-    <h3 class="form_title">
-      Postcode / ZIP<br>
-    </h3>
-      <input type="text" id="customerName" class="form" placeholder="Postcode / ZIP">
-    <h3 class="form_title">
-      Phone number<br>
-    </h3>
-      <input type="text" id="customerName" class="form" placeholder="Phone number">
-    <h3 class="form_title">
-      Email address<br>
-    </h3>
-      <input type="text" id="customerName" class="form" placeholder="Email address">
-  </div>
-  <div class="checkout_form_card">
-    <h2 class="section_title">
-      Credit Card (Stripe)
-    </h2>
-    <h3 class="form_title">
-      Card Number<br>
-    </h3>
-      <input type="text" id="customerName" class="form" placeholder="Card Number">
-    <h3 class="form_title">
-      Expiry Date<br>
-    </h3>
-      <input type="text" id="customerName" class="form" placeholder="Expiry Date">
-    <h3 class="form_title">
-      Card Code (CVC)<br>
-    </h3>
-      <input type="text" id="customerName" class="form" placeholder="CVC">
-  </div>
+    <form name="selectedProductsForm" id="payment-form" method="post" action="start_subscription.php">
+      <input type="text" name="selectedProducts" class="form" size="65" readonly="readonly">
+      <div id="card-errors" role="alert"></div>
+      <div class="checkout_form">
+      <h2 class="section_title">
+        Billing and shipping details
+      </h2>
+      <h3 class="form_title">
+        First name<br>
+      </h3>
+        <input type="text" id="customerFirstName" class="form" placeholder="First name">
+      <h3 class="form_title">
+        Last name<br>
+      </h3>
+        <input type="text" id="customerLastName" class="form" placeholder="Last name">
+      <h3 class="form_title">
+        Country<br>
+      </h3>
+        <input type="text" id="customerCountry" class="form" placeholder="Country">
+      <h3 class="form_title">
+        Address<br>
+      </h3>
+        <input type="text" id="customerAddress" class="form" placeholder="Address">
+      <h3 class="form_title">
+        State<br>
+      </h3>
+        <input type="text" id="customerState" class="form" placeholder="State">
+      <h3 class="form_title">
+        Postcode / ZIP<br>
+      </h3>
+        <input type="text" id="customerPostcode" class="form" placeholder="Postcode / ZIP">
+      <h3 class="form_title">
+        Phone number<br>
+      </h3>
+        <input type="text" id="customerPhoneNumber" class="form" placeholder="Phone number">
+      <h3 class="form_title">
+        Email address<br>
+      </h3>
+        <input type="text" id="customerEmail" class="form" placeholder="Email address">
+    </div>
+    <div class="checkout_form_card">
+      <h2 class="section_title">
+        Credit Card (Stripe)
+      </h2>
+      <h3 class="form_title">
+        Card Number<br>
+      </h3>
+        <!--<input type="text" id="customerCardNumber" class="form" placeholder="Card Number">-->
+        <div id="card-number" class="stripe-input"></div>
+      <h3 class="form_title">
+        Expiry Date<br>
+      </h3>
+        <!--<input type="text" id="customerExpiryDate" class="form" placeholder="Expiry Date">-->
+        <div id="card-expiry" class="stripe-input"></div>
+      <h3 class="form_title">
+        Card Code (CVC)<br>
+      </h3>
+        <!--<input type="text" id="customerCVC" class="form" placeholder="CVC">-->
+        <div id="card-cvc" class="stripe-input"></div>
+    </div>
+  </form>
   <diV class="announce_checkout">
     Price : RM60.00<br>
     (Now the first month payment is half price!)<br>
@@ -154,97 +165,61 @@
 <!-- Wrapper-->
 <!-- Checkout start -->
 <script>
+  let param = location.search;
+  const publicKey = 'pk_test_3LYqp76Baj0Z7WuetsAQEJFc';
+  var stripe = Stripe(publicKey);
+  var elements = stripe.elements();
+  const cardNumber = elements.create('cardNumber',{placeholder:'1111 1111 1111 1111'});
+  cardNumber.mount('#card-number');
+  const cardExpiry = elements.create('cardExpiry',{placeholder:'MM/YY'});
+  cardExpiry.mount('#card-expiry');
+  const cardCvc = elements.create('cardCvc',{placeholder:'111'});
+  cardCvc.mount('#card-cvc');
+  let customerName = '';
+  let customerEmail = '';
 
-  const checkoutButtons = document.getElementsByClassName('checkout');
-  let currency = [];
-  let amount = [];
-  let postCurrency;
-
-  for (let i = 0; i < checkoutButtons.length; i++) {
-
-    currency[i] = checkoutButtons[i].value;
-
-    switch (currency[i]) {
-      case 'myr':
-        amount[i] = 6000;
-        break;
-      case 'usd':
-        amount[i] = 1500;
-        break;
-      case 'sgd':
-        amount[i] = 2000;
-        break;
-    }
-
-    var handler = StripeCheckout.configure({
-      key: 'pk_test_3LYqp76Baj0Z7WuetsAQEJFc',
-      image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
-      locale: 'en',
-      token: function(token) {
-      // Prevent user from leaving page
-      window.onbeforeunload = function() {
-        return "";
-      };
-
-      // Dynamically create a form element to submit the results
-      // to your backend server
-      var form = document.createElement("form");
-      form.setAttribute('method', "POST");
-      form.setAttribute('action', "start_subscription.php");
-
-      // Add the token ID as a hidden field to the form
-      var inputToken = document.createElement("input");
-      inputToken.setAttribute('type', "hidden");
-      inputToken.setAttribute('name', "stripeToken");
-      inputToken.setAttribute('value', token.id);
-      form.appendChild(inputToken);
-
-      // Add the email as a hidden field to the form
-      var inputEmail = document.createElement("input");
-      inputEmail.setAttribute('type', "hidden");
-      inputEmail.setAttribute('name', "stripeEmail");
-      inputEmail.setAttribute('value', token.email);
-      form.appendChild(inputEmail);
-
-      var inputCurrency = document.createElement("input");
-      inputCurrency.setAttribute('type', "hidden");
-      inputCurrency.setAttribute('name', "stripeCurrency");
-      inputCurrency.setAttribute('value', postCurrency);
-      form.appendChild(inputCurrency);
-
-      // Finally, submit the form
-      document.body.appendChild(form);
-
-      // Artificial 1 second delay for testing
-      setTimeout(function() {
-        window.onbeforeunload = null;
-        form.submit();
-      }, 1000);
-      }
-    });
-
-    checkoutButtons[i].addEventListener('click',function(e) {
-      // Open Checkout with further options
-      handler.open({
-        name: 'Store for you',
-        description: 'Subscription Service',
-        panelLabel:'GET STARTED',
-        currency:currency[i],
-        shippingAddress:true,
-        amount: amount[i]
-      });
-      postCurrency = currency[i];
-      e.preventDefault();
-    });
+  function getParam(){
+    if (!param) return false;
+    param = param.substring(1);
+    param = param.split("=");
+    document.selectedProductsForm.selectedProducts.value = param[1];
   }
 
-// Close Checkout on page navigation
-window.addEventListener('popstate', function() {
-	handler.close();
-});
+  document.getElementById("orderbutton").onclick = function(e) {
+    const request = new XMLHttpRequest();
+    customerName = document.getElementById("customerFirstName").value + document.getElementById("customerLastName").value;
+    customerEmail = document.getElementById("customerEmail").value;
 
+    request.open('POST', 'https://hooks.slack.com/services/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',false);
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    //request.send('payload={\"channel\": \"#order\", \"username\": \"' + customerName + '\", \"text\": \"1,2,3,4,5,6,7,8,9\", \"icon_emoji\": \":ghost:\"}');
+    request.send('payload={\"channel\": \"#order\", \"username\": \"' + customerName + '\", \"text\": \"Email=' + customerEmail + ',selectedProducts=' + param + '\", \"icon_emoji\": \":ghost:\"}');
+    if(request.status === 200) {
 
-$(function() {
+    // Stripeサーバにクレジットカード情報を送信してクレジットカードトークンを取得する
+    stripe.createToken(cardNumber).then(function(result) {
+        if (result.error) {
+            var errorElement = document.getElementById('card-errors');
+            errorElement.textContent = result.error.message;
+        } else {
+            // クレジットカードトークンを自サーバにsubmitする
+            stripeTokenHandler(result.token);
+        }
+    });
+
+    function stripeTokenHandler(token) {
+    var form = document.getElementById('payment-form');
+    var hiddenInput = document.createElement('input');
+    hiddenInput.setAttribute('type', 'hidden');
+    hiddenInput.setAttribute('name', 'stripeToken');
+    hiddenInput.setAttribute('value', token.id);
+    form.appendChild(hiddenInput);
+
+    form.submit();
+    }
+  }
+
+    $(function() {
   $('#orderbutton').on('sumbit', function() {
 		// 1．textメソッドで書き換え
 		$("#complete").text("Thank you for your placing an order. Our staff will send confirmation email to you!");
