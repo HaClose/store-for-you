@@ -121,17 +121,17 @@
         Card Number<br>
       </h3>
         <!--<input type="text" id="customerCardNumber" class="form" placeholder="Card Number">-->
-        <li><div id="card-number" class="stripe-input"></div></li>
+        <div id="card-number" class="stripe-input"></div>
       <h3 class="form_title">
         Expiry Date<br>
       </h3>
         <!--<input type="text" id="customerExpiryDate" class="form" placeholder="Expiry Date">-->
-        <li><div id="card-expiry" class="stripe-input"></div></li>
+        <div id="card-expiry" class="stripe-input"></div>
       <h3 class="form_title">
         Card Code (CVC)<br>
       </h3>
         <!--<input type="text" id="customerCVC" class="form" placeholder="CVC">-->
-        <li><div id="card-cvc" class="stripe-input"></div></li>
+        <div id="card-cvc" class="stripe-input"></div>
     </div>
   </form>
   <diV class="announce_checkout">
@@ -168,11 +168,11 @@
   const publicKey = 'pk_test_3LYqp76Baj0Z7WuetsAQEJFc';
   var stripe = Stripe(publicKey);
   var elements = stripe.elements();
-  const cardNumber = elements.create('cardNumber',{placeholder:'card Number'});
+  const cardNumber = elements.create('cardNumber',{placeholder:'1111 1111 1111 1111'});
   cardNumber.mount('#card-number');
-  const cardExpiry = elements.create('cardExpiry',{placeholder:'card Number'});
+  const cardExpiry = elements.create('cardExpiry',{placeholder:'MM/YY'});
   cardExpiry.mount('#card-expiry');
-  const cardCvc = elements.create('cardCvc',{placeholder:'card Number'});
+  const cardCvc = elements.create('cardCvc',{placeholder:'111'});
   cardCvc.mount('#card-cvc');
   let customerName = '';
   let customerEmail = '';
