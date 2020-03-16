@@ -164,7 +164,7 @@
 <!-- Wrapper-->
 <!-- Checkout start -->
 <script>
-  let param = location.search;
+  let param = '';
   const publicKey = 'pk_test_3LYqp76Baj0Z7WuetsAQEJFc';
   var stripe = Stripe(publicKey);
   var elements = stripe.elements();
@@ -178,6 +178,7 @@
   let customerEmail = '';
 
   function getParam(){
+    param = location.search;
     if (!param) return false;
     param = param.substring(1);
     param = param.split("=");
@@ -189,7 +190,7 @@
     customerName = document.getElementById("customerFirstName").value + document.getElementById("customerLastName").value;
     customerEmail = document.getElementById("customerEmail").value;
 
-    request.open('POST', 'https://hooks.slack.com/services/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',false);
+    request.open('POST', 'https://hooks.slack.com/services/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',false);
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     //request.send('payload={\"channel\": \"#order\", \"username\": \"' + customerName + '\", \"text\": \"1,2,3,4,5,6,7,8,9\", \"icon_emoji\": \":ghost:\"}');
     request.send('payload={\"channel\": \"#order\", \"username\": \"' + customerName + '\", \"text\": \"Email=' + customerEmail + ',selectedProducts=' + param + '\", \"icon_emoji\": \":ghost:\"}');
@@ -219,14 +220,14 @@
   }
 
     $(function() {
-  $('#orderbutton').on('sumbit', function() {
-		// 1．textメソッドで書き換え
-		$("#complete").text("Thank you for your placing an order. Our staff will send confirmation email to you!");
+      $('#orderbutton').on('sumbit', function() {
+        // 1．textメソッドで書き換え
+        $("#complete").text("Thank you for your placing an order. Our staff will send confirmation email to you!");
 
-    //$("#complete").delay(1000).slideUp('slow');
-	});
-});
-
+        //$("#complete").delay(1000).slideUp('slow');
+      });
+    });
+  }
 </script>
 
 <!-- Checkout end -->
