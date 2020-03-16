@@ -163,7 +163,7 @@ p {
    position: fixed;
    opacity: 1;
    background-color: #F2F2F2;
-   z-index: 9999;
+   z-index: 8000;
    text-align: center;
 }
 
@@ -959,6 +959,7 @@ textarea.form-control {
 	border-color: #1eb858;
 	height: 60px;
   font-weight: bold;
+	margin: 20px 0px;
 }
 
 .app .btn-action:hover {
@@ -967,7 +968,9 @@ textarea.form-control {
 	border-color: #1eb858;
 }
 
-
+#cart{
+	width: 40px;
+}
 
 /*----------------------------------------------------
 -------------- Split Home Coming Soon ----------------
@@ -2314,7 +2317,7 @@ font-weight: bold;
 .text_of_How_to{
 	border-right: 2px solid #f2f1ef;
 	padding: 0px 10px 0px 10px;
-	height: 220px;
+	height: auto;
 }
 
 .text_of_how_to_last{
@@ -2325,6 +2328,7 @@ border-right: 0;
     padding: 0.5em 0.5em;
     margin: 2em 0;
     box-shadow: 	3px 6px 10px 3px rgba(0,0,0,.08);
+		margin-bottom: 70px;
 }
 
 .font_strong{
@@ -2370,6 +2374,9 @@ border-right: 0;
    transition: .3s ease-out;/*変化を緩やかに*/
  	padding: 20px 30px 20px 30px;
  	font-weight: bold;
+	display: flex;
+  justify-content: center;
+  align-items: center;
  }
 
  .order-checkbox{
@@ -2407,13 +2414,23 @@ border-right: 0;
  .order-text{
  	font-size: 18px;
  	line-height: 30px;
- 	margin-bottom: 30px;
+ 	margin: 25px 30px 0px 30px;
+  text-align: center;
  }
 
+
+.order-form input[type="text"], textarea, textarea.form-control{
+	width: 100%
+}
+
  .order-form {
- 	text-align: center;
  	padding: 0.5em 0.5em;
- 	margin: 0.5em 0;
+ 	margin: auto;
+  width: 70%
+ }
+
+ .top_form{
+	margin: 20px 0px 5px 0px;
  }
 
  .order {
@@ -2464,6 +2481,7 @@ border-right: 0;
 	 text-align: center;
 	 margin: 10px 0px 20px 0px;
 	 color: #e91e63;
+	 font-size: 25px;
  }
 
  .copyright{
@@ -2518,6 +2536,11 @@ border-right: 0;
 	 margin: 25px 0px 10px 0px;
 	 color: #e91e63;
 	 font-size: 23px;
+ }
+
+ #complete{
+
+
  }
 
  @media only screen and (min-width: 1024px) and (max-width: 1410px) {
@@ -2651,7 +2674,19 @@ border-right: 0;
 		display: inline;
 		margin: 0px 10px 0px 10px;
 		float: none;
+	}
+	.order-text {
+			font-size: 14px;
+			line-height: 25px;
+			margin: 5px;
+	}
 
+	.top_form {
+			margin: 15px 0px 5px 0px;
+	}
+
+	.app .btn-action{
+		margin: 10px 0px;
 	}
 }
 
@@ -2770,6 +2805,19 @@ border-right: 0;
 		line-height: 18px;
 	}
 
+	.order-text {
+	    font-size: 14px;
+	    line-height: 25px;
+	    margin: 5px;
+	}
+
+	.top_form {
+	    margin: 15px 0px 5px 0px;
+	}
+
+	.app .btn-action{
+		margin: 10px 0px;
+	}
 }
 
 .stripe-input {
